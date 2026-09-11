@@ -23,7 +23,9 @@ flowchart LR
 
 ## Estrutura
 
-- `widget/` — componente React instalável (`@vijiatjack/feedback-widget`), build via Vite.
+- `/` (raiz) — componente React instalável (`@vijiatjack/feedback-widget`), build via
+  Vite. Precisa estar na raiz do repo pra `npm install github:...` funcionar — não é
+  possível instalar um pacote de dentro de um subdiretório de um repo git via npm.
 - `api/` — API em Next.js (App Router), deploy na Vercel.
 - `demo/` — app Vite simples pra testar o widget contra a API local.
 
@@ -32,6 +34,9 @@ flowchart LR
 ```bash
 npm install github:VijiatJack/feedback-widget#v0.1.0
 ```
+
+O `prepare` script do pacote builda automaticamente (`vite build`) quando instalado
+via git — não precisa rodar nada manual depois do `npm install`.
 
 ```tsx
 import { FeedbackWidget } from "@vijiatjack/feedback-widget";
@@ -131,8 +136,7 @@ cd api
 cp .env.example .env.local   # preencher credenciais do GitHub App + FEEDBACK_APPS
 npm install && npm run dev    # http://localhost:3001
 
-# Widget
-cd widget
+# Widget (raiz do repo)
 npm install && npm run build
 
 # Demo (aponta pra API local)
