@@ -1,0 +1,40 @@
+{
+  "name": "@vijiatjack/feedback-widget",
+  "version": "0.1.0",
+  "description": "Installable React feedback widget — captures notes + screenshot + browser info and files a labeled GitHub issue via the feedback-widget API.",
+  "type": "module",
+  "main": "./dist/feedback-widget.cjs",
+  "module": "./dist/feedback-widget.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/feedback-widget.js",
+      "require": "./dist/feedback-widget.cjs"
+    },
+    "./styles.css": "./dist/feedback-widget.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^5",
+    "react": "^19",
+    "react-dom": "^19",
+    "typescript": "^5",
+    "vite": "^7",
+    "vite-plugin-dts": "^4",
+    "vitest": "^3"
+  }
+}
